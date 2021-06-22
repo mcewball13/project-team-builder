@@ -6,5 +6,7 @@ test("Make sure Employee works", () => {
     const employee = new Employee("sam", 1, "gbnn;m");
     
     expect(employee.name).toEqual(expect.any(String));
-    expect(employee.getName()).toBe("sam");
+    expect(employee.id).toEqual(expect.any(Number));
+    expect(employee.email).toEqual(expect.any(String));
+    expect(getRole()).toBe(("Employee"));
 });
