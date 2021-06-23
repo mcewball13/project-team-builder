@@ -50,7 +50,7 @@ module.exports = (data) => {
         <ul class="list-group list-group-flush">
           <li class="list-group-item">${engineer.getId()}</li>
           <li class="list-group-item"><a href="mailto:${engineer.getEmail()}"></a></li>
-          <li class="list-group-item"><a href="https://github.com/${engineer.getGithub()}"></a></li>
+          <li class="list-group-item"><a target="_blank" href="https://github.com/${engineer.getGithub()}"></a></li>
         </ul>
       </div>`;
     });
