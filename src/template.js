@@ -19,7 +19,7 @@ module.exports = (data) => {
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">${manager.getId()}</li>
-          <li class="list-group-item">${manager.getEmail()}</li>
+          <li class="list-group-item"><a href="mailto:${manager.getEmail()}"></a></li>
           <li class="list-group-item">${manager.getOfficeNumber()}</li>
         </ul>
       </div>`;
@@ -34,7 +34,7 @@ module.exports = (data) => {
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">${intern.getId()}</li>
-          <li class="list-group-item">${intern.getEmail()}</li>
+          <li class="list-group-item"><a href="mailto:${intern.getEmail()}"></a></li>
           <li class="list-group-item">${intern.getSchool()}</li>
         </ul>
       </div>`;
@@ -49,8 +49,8 @@ module.exports = (data) => {
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">${engineer.getId()}</li>
-          <li class="list-group-item">${engineer.getEmail()}</li>
-          <li class="list-group-item">${engineer.getGithub()}</li>
+          <li class="list-group-item"><a href="mailto:${engineer.getEmail()}"></a></li>
+          <li class="list-group-item"><a href="https://github.com/${engineer.getGithub()}"></a></li>
         </ul>
       </div>`;
     });

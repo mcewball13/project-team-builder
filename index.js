@@ -11,7 +11,7 @@ const employeeQuestions = [
         type: "rawlist",
         name: "role",
         message: "What type of Employee would you like to add if any?",
-        choices: ["Intern", "Engineer", "Manager", "none"],
+        choices: ["Intern", "Engineer", "Manager"],
     },
     {
         type: "input",
@@ -137,10 +137,9 @@ function init() {
             }
         })
         .then(() => {
-            return templateMaker(employeeArr)
-            
+            return templateMaker(employeeArr);
         })
-        .then(string => {
+        .then((string) => {
             fs.writeFile("./dist/index.html", string, function (err) {});
         });
 }
