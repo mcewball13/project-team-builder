@@ -1,24 +1,26 @@
 {
-  "name": "project-team-builder",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mcewball13/project-team-builder.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mcewball13/project-team-builder/issues"
-  },
-  "homepage": "https://github.com/mcewball13/project-team-builder#readme",
-  "dependencies": {
-    "inquirer": "^8.1.1",
-    "jest": "^27.0.4"
-  }
+    "name": "project-team-builder",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "start": "./index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mcewball13/project-team-builder.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mcewball13/project-team-builder/issues"
+    },
+    "homepage": "https://github.com/mcewball13/project-team-builder#readme",
+    "dependencies": {
+        "bootstrap-icons": "^1.5.0",
+        "inquirer": "^8.1.1",
+        "jest": "^27.0.4"
+    }
 }

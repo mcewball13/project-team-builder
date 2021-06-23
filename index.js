@@ -1,8 +1,10 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const templateMaker = require('./src/template')
+const templateMaker = require("./src/template");
+// const { finished } = require("stream");
 
 const employeeQuestions = [
     {
@@ -10,7 +12,6 @@ const employeeQuestions = [
         name: "role",
         message: "What type of Employee would you like to add if any?",
         choices: ["Intern", "Engineer", "Manager", "none"],
-        
     },
     {
         type: "input",
@@ -103,42 +104,44 @@ const employeeQuestions = [
 const employeeArr = [];
 
 function init() {
-    inquirer.prompt(employeeQuestions).then((answers) => {
-        if (answers.role === "Intern") {
-            const intern = new Intern(
-                answers.name,
-                answers.id,
-                answers.email,
-                answers.school
-            );
-            // console.log(intern);
-            employeeArr.push(intern);
-        } else if (answers.role === "Engineer") {
-            const engineer = new Engineer(
-                answers.name,
-                answers.id,
-                answers.email,
-                answers.github
-            );
-            // console.log(engineer, engineer.getRole());
-            employeeArr.push(engineer);
-        } else if (answers.role === "Manager") {
-            const manager = new Manager(
-                answers.name,
-                answers.id,
-                answers.email,
-                answers.officeNumber
-            );
-            // console.log(manager);
-            employeeArr.push(manager);
-        }
-        if (answers.addAnother) {
-            return init();
-        }
-        console.log(employeeArr);
-
-    }).then(
-        templateMaker(employeeArr)
-    );
+    inquirer
+        .prompt(employeeQuestions)
+        .then((answers) => {
+            if (answers.role === "Intern") {
+                const intern = new Intern(
+                    answers.name,
+                    answers.id,
+                    answers.email,
+                    answers.school
+                );
+                employeeArr.push(intern);
+            } else if (answers.role === "Engineer") {
+                const engineer = new Engineer(
+                    answers.name,
+                    answers.id,
+                    answers.email,
+                    answers.github
+                );
+                employeeArr.push(engineer);
+            } else if (answers.role === "Manager") {
+                const manager = new Manager(
+                    answers.name,
+                    answers.id,
+                    answers.email,
+                    answers.officeNumber
+                );
+                employeeArr.push(manager);
+            }
+            if (answers.addAnother) {
+                return init();
+            }
+        })
+        .then(() => {
+            return templateMaker(employeeArr)
+            
+        })
+        .then(string => {
+            fs.writeFile("./dist/index.html", string, function (err) {});
+        });
 }
 init();
